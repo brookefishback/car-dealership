@@ -1,4 +1,4 @@
 #So you two are going to deliver a Car Dealership Sales Management solution that adheres to the following requirements:
 #1. Maintains a database of customers who have interacted with sales, including name and phone number
 #2. Sells at least 1 model of vehicle with at least 5 customizable options. These options can either be chosen as part of a trim level, or fully customized.
-#3. The result of the sales process should be a screen that displays a work order for the vehicle - basically just a list of the options to be included. Think like an order ticket at a restaurant, so the vehicle can be built.
+#3. The result of the sales process should be a screen that displays a work order for the vehicle - basically just a list of the options to be included. Think like an order ticket at a restaurant, so the vehicle can be built
