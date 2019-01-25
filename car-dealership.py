@@ -8,6 +8,7 @@ class Customer:
         self.customer_name = customer_name
         self.phone_number = phone_number
         self.interested_car = interested_car
+        self.car_to_order = ''
 
 class Sedan:
     def __init__(self, sedan_tint="no tint", sedan_transmission="auto", sedan_engine="v4", sedan_trim="silver", sedan_seats="cloth"):
@@ -72,3 +73,38 @@ def sample_clients():
 
 sample_clients()
 print(customer_sales_list)
+
+#Creating new client and car, either sedan or luxury.
+def new_car_client():
+    customer_name = input("Client's name: ")
+    interested_car = input("Sedan or Luxury: ")
+    phone_number = input("Phone number: ")
+    client_sedan_buyer = Customer(customer_name, interested_car, phone_number)
+
+    if interested_car == "Sedan":
+        print("Please input the desired Sedan specs. Hit Enter to select default.")
+        new_client_sedan_tint = input("No Tint, upgrade to: ")
+        new_client_sedan_transmission = input("Automatic transmission, change to: ")
+        new_client_sedan_engine = input("Default is v4, upgrade to: ")
+        new_client_sedan_trim = input("Silver trim is standard, upgrade to: ")
+        new_client_sedan_seats = input("Cloth seats, upgrade to: ")
+        client_ordered_sedan = Sedan(new_client_sedan_tint, new_client_sedan_transmission, new_client_sedan_engine, new_client_sedan_trim, new_client_sedan_seats)
+
+        client_sedan_buyer.car_to_order = client_ordered_sedan
+
+        print(client_sedan_buyer.customer_name), print(client_sedan_buyer.interested_car), print(client_sedan_buyer.phone_number)
+        print(client_ordered_sedan.sedan_tint), print(client_ordered_sedan.sedan_transmission), print(client_ordered_sedan.sedan_engine), print(client_ordered_sedan.sedan_trim), print(client_ordered_sedan.sedan_seats)
+
+#def returning_car_client():
+
+while True:
+    print("Python Car Dealership.")
+    dealer_input = input("Is this an RETURNING customer or NEW?")
+    if dealer_input == "New":
+        new_car_client()
+#    elif dealer_input == "Returning":
+#        returning_car_client():
+#    else:
+#    return
+
+        
