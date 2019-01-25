@@ -1,0 +1,61 @@
+#So you two are going to deliver a Car Dealership Sales Management solution that adheres to the following requirements:
+#1. Maintains a database of customers who have interacted with sales, including name and phone number
+#2. Sells at least 1 model of vehicle with at least 5 customizable options. These options can either be chosen as part of a trim level, or fully customized.
+#3. The result of the sales process should be a screen that displays a work order for the vehicle - basically just a list of the options to be included. Think like an order ticket at a restaurant, so the vehicle can be built.
+
+#CREATE CLASS - STRUCTURE  
+class Order:
+    def __init__(self, name, number, color, trim, tint, rims, sunroof):
+        self.name = name
+        self.number = number
+        self.color = color
+        self.trim = trim
+        self.tint = tint
+        self.rims = rims
+        self.sunroof = sunroof
+
+def create_order(self):
+
+    order = Order()
+    name = input("Enter customer name: ")
+    number = input("Enter phone number: ")
+    color = input("Enter color: ")
+    trim = input("Enter trime color: ")
+    tint = input("Enter tint level: ")
+    rims = input("Enter rim size: ")
+    sunroof = input("Enter sunroof type:")
+    order_list.appened(Order)
+
+    orders = Order(name, number, color, trim, tint, rims, sunroof)
+    order_list = [order.name, order.number, order.color, order.trim, order.tint, order.rims, order.sunroof]
+    print("Your record has been succesfully added to the inventory")
+
+def view_orders():
+    print(order_list)
+
+def main():
+    menu = {}
+    menu['1']="Add Order" 
+    menu['2']="View Orders"
+    menu['3']="Exit"
+
+user=True
+while user:
+    print ("""
+    1.Add an Order
+    2.View Orders
+    3.Exit/Quit
+    """)
+    ans=input("What would you like to do? ") 
+    if ans=="1": 
+        Order.create_order()
+    elif ans=="2":
+        print view_orders()
+    elif ans=="3":
+        print("\n Goodbye")
+        break
+    elif ans !="":
+        print("\n Invaild Entry")
+
+if __name__ == "__main__":
+    main()
