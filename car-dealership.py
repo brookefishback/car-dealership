@@ -16,7 +16,10 @@ class Order:
         self.rims = rims
         self.sunroof = sunroof
 
-order_list = []
+order_list = [
+    Order("Brooke", "817-733-6342", "black", "black", "black", "big", "auto"),
+    Order("Brooke", "214-532-1965", "brown", "grey", "white", "small", "auto")
+]
 
 #CREATE ORDER FUCNTION - TAKES SALESMAN INPUT TO CREATE WORKORDER FOR CUSTOMER'S DESIRED VEHICLE
 def create_order(self):
@@ -28,10 +31,11 @@ def create_order(self):
     tint = input("Enter tint level: ")
     rims = input("Enter rim size: ")
     sunroof = input("Enter sunroof type: ")
-    order_list.append(Order)
     completed_order = Order(name, number, color, trim, tint, rims, sunroof)
+    order_list.append(completed_order)
 
-    print("Order #" + str(random.randint(1,10000)) + (" has been added to the database."))
+    #USE COUNTER TO DETERMINE ORDER NUMBER
+    print("Order has been added to the database.")
     print(completed_order.name)
     print(completed_order.number)
     print(completed_order.color)
@@ -42,7 +46,8 @@ def create_order(self):
 
 #CREATE VIEW ORDER FUCNTION - PRINTS ORDER LIST FOR SALESMAN
 def view_orders():
-    print(order_list)
+    for order in order_list:
+        print(order.number)
 
 #CRRATE MAIN MENU FUNTION
 def main():
