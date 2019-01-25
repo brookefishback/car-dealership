@@ -3,108 +3,70 @@
 #2. Sells at least 1 model of vehicle with at least 5 customizable options. These options can either be chosen as part of a trim level, or fully customized.
 #3. The result of the sales process should be a screen that displays a work order for the vehicle - basically just a list of the options to be included. Think like an order ticket at a restaurant, so the vehicle can be built.
 
-class Customer:
-    def __init__(self, customer_name, interested_car, phone_number="555-5555"):
-        self.customer_name = customer_name
-        self.phone_number = phone_number
-        self.interested_car = interested_car
-        self.car_to_order = ''
+#CREATE CLASS - COMPOSED OF CUSTOMER INFO AND CAR CUSOMIZTATIONS
+class Order:
+    def __init__(self, name, number, color, trim, tint, rims, sunroof):
+        self.name = name
+        self.number = number
+        self.color = color
+        self.trim = trim
+        self.tint = tint
+        self.rims = rims
+        self.sunroof = sunroof
 
-class Sedan:
-    def __init__(self, sedan_tint="no tint", sedan_transmission="auto", sedan_engine="v4", sedan_trim="silver", sedan_seats="cloth"):
-        self.sedan_tint = sedan_tint
-        self.sedan_transmission = sedan_transmission
-        self.sedan_engine = sedan_engine
-        self.sedan_trim = sedan_trim
-        self.sedan_seats = sedan_seats
+order_list = []
 
-class Luxury:
-    def __init__(self, luxury_seats="warmers", luxury_cameras="backup", luxury_roof="sunroof", luxury_trim="blackout", luxury_rims="18s"):
-        self.luxury_seats = luxury_seats
-        self.luxury_cameras = luxury_cameras
-        self.luxury_roof = luxury_roof
-        self.luxury_trim = luxury_trim
-        self.luxury_rims = luxury_rims
+#CREATE ORDER FUCNTION - TAKES SALESMAN INPUT TO CREATE WORKORDER FOR CUSTOMER'S DESIRED VEHICLE
+def create_order(self):
 
-customer_sales_list = []
-sedan_list = []
-luxury_list = []
+    name = input("Enter customer name: ")
+    number = input("Enter phone number: ")
+    color = input("Enter color: ")
+    trim = input("Enter trim color: ")
+    tint = input("Enter tint level: ")
+    rims = input("Enter rim size: ")
+    sunroof = input("Enter sunroof type: ")
+    order_list.append(Order)
+    completed_order = Order(name, number, color, trim, tint, rims, sunroof)
 
-def sample_sedan():
-    print("----Adding sample sedan model.----")
-    template_sedan = Sedan()
-    print(template_sedan.sedan_tint)
-    print(template_sedan.sedan_transmission)
-    print(template_sedan.sedan_engine)
-    print(template_sedan.sedan_trim)
-    print(template_sedan.sedan_seats)
-    sedan_list.append(template_sedan)
+    print("Your customer has been succesfully added to the database: ")
+    print(completed_order.name)
+    print(completed_order.number)
+    print(completed_order.color)
+    print(completed_order.trim)
+    print(completed_order.tint)
+    print(completed_order.rims)
+    print(completed_order.sunroof)
 
-sample_sedan()
-print(sedan_list)
+#CREATE VIEW ORDER FUCNTION - PRINTS ORDER LIST FOR SALESMAN
+def view_orders():
+    print(order_list)
 
-def sample_luxury():
-    print("----Adding sample luxury model.----")
-    template_luxury = Luxury()
-    print(template_luxury.luxury_seats)
-    print(template_luxury.luxury_cameras)
-    print(template_luxury.luxury_roof)
-    print(template_luxury.luxury_trim)
-    print(template_luxury.luxury_rims)
-    luxury_list.append(template_luxury)
+#CRRATE MAIN MENU FUNTION
+def main():
+    menu = {}
+    menu['1']="Add Order" 
+    menu['2']="View Orders"
+    menu['3']="Exit"
 
-sample_luxury()
-print(luxury_list)
+#WHILE AND IF STATEMENTS TO HANDLE SALESMEN'S MENU CHOICES
+user=True
+while user:
+    print ("""
+    1.Add an Order
+    2.View Orders
+    3.Exit/Quit
+    """)
+    ans=input("What would you like to do? ") 
+    if ans=="1": 
+        create_order(Order)
+    elif ans=="2":
+        view_orders()
+    elif ans=="3":
+        print("\n Goodbye")
+        break
+    elif ans !="":
+        print("\n Invaild Entry")
 
-def sample_clients():
-    print("----Sample Client One----")
-    customer_one = Customer("John Smith", "sedan")
-    print(customer_one.customer_name)
-    print(customer_one.phone_number)
-    print(customer_one.interested_car)
-    customer_sales_list.append(customer_one)
-
-    print("----Sample Client Two----")
-    customer_two = Customer("Jane Doe", "luxury", "123-4567")
-    print(customer_two.customer_name)
-    print(customer_two.phone_number)
-    print(customer_two.interested_car)
-    customer_sales_list.append(customer_two)
-
-sample_clients()
-print(customer_sales_list)
-
-#Creating new client and car, either sedan or luxury.
-def new_car_client():
-    customer_name = input("Client's name: ")
-    interested_car = input("Sedan or Luxury: ")
-    phone_number = input("Phone number: ")
-    client_sedan_buyer = Customer(customer_name, interested_car, phone_number)
-
-    if interested_car == "Sedan":
-        print("Please input the desired Sedan specs. Hit Enter to select default.")
-        new_client_sedan_tint = input("No Tint, upgrade to: ")
-        new_client_sedan_transmission = input("Automatic transmission, change to: ")
-        new_client_sedan_engine = input("Default is v4, upgrade to: ")
-        new_client_sedan_trim = input("Silver trim is standard, upgrade to: ")
-        new_client_sedan_seats = input("Cloth seats, upgrade to: ")
-        client_ordered_sedan = Sedan(new_client_sedan_tint, new_client_sedan_transmission, new_client_sedan_engine, new_client_sedan_trim, new_client_sedan_seats)
-
-        client_sedan_buyer.car_to_order = client_ordered_sedan
-
-        print(client_sedan_buyer.customer_name), print(client_sedan_buyer.interested_car), print(client_sedan_buyer.phone_number)
-        print(client_ordered_sedan.sedan_tint), print(client_ordered_sedan.sedan_transmission), print(client_ordered_sedan.sedan_engine), print(client_ordered_sedan.sedan_trim), print(client_ordered_sedan.sedan_seats)
-
-#def returning_car_client():
-
-while True:
-    print("Python Car Dealership.")
-    dealer_input = input("Is this an RETURNING customer or NEW?")
-    if dealer_input == "New":
-        new_car_client()
-#    elif dealer_input == "Returning":
-#        returning_car_client():
-#    else:
-#    return
-
-        
+if __name__ == "__main__":
+    main()
