@@ -3,6 +3,8 @@
 #2. Sells at least 1 model of vehicle with at least 5 customizable options. These options can either be chosen as part of a trim level, or fully customized.
 #3. The result of the sales process should be a screen that displays a work order for the vehicle - basically just a list of the options to be included. Think like an order ticket at a restaurant, so the vehicle can be built.
 
+import random
+
 #CREATE CLASS - COMPOSED OF CUSTOMER INFO AND CAR CUSOMIZTATIONS
 class Order:
     def __init__(self, name, number, color, trim, tint, rims, sunroof):
@@ -29,7 +31,7 @@ def create_order(self):
     order_list.append(Order)
     completed_order = Order(name, number, color, trim, tint, rims, sunroof)
 
-    print("Your customer has been succesfully added to the database: ")
+    print("Order #" + str(random.randint(1,10000)) + (" has been added to the database."))
     print(completed_order.name)
     print(completed_order.number)
     print(completed_order.color)
@@ -57,15 +59,15 @@ while user:
     2.View Orders
     3.Exit/Quit
     """)
-    ans=input("What would you like to do? ") 
-    if ans=="1": 
+    answer=input("What would you like to do? ") 
+    if answer=="1": 
         create_order(Order)
-    elif ans=="2":
+    elif answer=="2":
         view_orders()
-    elif ans=="3":
+    elif answer=="3":
         print("\n Goodbye")
         break
-    elif ans !="":
+    elif answer !="":
         print("\n Invaild Entry")
 
 if __name__ == "__main__":
