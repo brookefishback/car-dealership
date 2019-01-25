@@ -3,7 +3,7 @@
 #2. Sells at least 1 model of vehicle with at least 5 customizable options. These options can either be chosen as part of a trim level, or fully customized.
 #3. The result of the sales process should be a screen that displays a work order for the vehicle - basically just a list of the options to be included. Think like an order ticket at a restaurant, so the vehicle can be built.
 
-#CREATE CLASS - STRUCTURE  
+#CREATE CLASS - COMPOSED OF CUSTOMER INFO AND CAR CUSOMIZTATIONS
 class Order:
     def __init__(self, name, number, color, trim, tint, rims, sunroof):
         self.name = name
@@ -14,6 +14,7 @@ class Order:
         self.rims = rims
         self.sunroof = sunroof
 
+#CREATE ORDER FUCNTION - TAKES SALESMAN INPUT TO CREATE WORKORDER FOR CUSTOMER'S DESIRED VEHICLE
 def create_order(self):
 
     order = Order()
@@ -30,15 +31,18 @@ def create_order(self):
     order_list = [order.name, order.number, order.color, order.trim, order.tint, order.rims, order.sunroof]
     print("Your record has been succesfully added to the inventory")
 
+#CREATE VIEW ORDER FUCNTION - PRINTS ORDER LIST FOR SALESMAN
 def view_orders():
     print(order_list)
 
+#CRRATE MAIN MENU FUNTION
 def main():
     menu = {}
     menu['1']="Add Order" 
     menu['2']="View Orders"
     menu['3']="Exit"
 
+#WHILE AND IF STATEMENTS TO HANDLE SALESMEN'S MENU CHOICES
 user=True
 while user:
     print ("""
